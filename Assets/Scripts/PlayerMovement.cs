@@ -32,9 +32,9 @@ public class PlayerMovement : MonoBehaviour
 
         Move();
 
-        Jump();
-
         Run();
+
+        Jump();
 
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
@@ -61,13 +61,16 @@ public class PlayerMovement : MonoBehaviour
 
     private void Run()
     {
-        if (Input.GetKeyDown("left shift"))
+        if (Input.GetKeyDown("left shift") && isGrounded)
         {
             speed += runSpeed;
         }
-        else if (Input.GetKeyUp("left shift"))
+        else if (Input.GetKeyUp("left shift") && isGrounded)
         {
-            speed -= runSpeed;
+            if (speed > 12f)
+            {
+                speed -= runSpeed;
+            }
         }
     }
 }
