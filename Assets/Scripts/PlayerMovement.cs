@@ -30,18 +30,37 @@ public class PlayerMovement : MonoBehaviour
             velocity.y = -2f;
         }
 
+        Move();
+
+        Jump();
+
+        Run();
+
+        velocity.y += gravity * Time.deltaTime;
+        controller.Move(velocity * Time.deltaTime);
+    }
+
+
+    private void Move()
+    {
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
 
         Vector3 move = transform.right * x + transform.forward * z;
 
         controller.Move(move * speed * Time.deltaTime);
+    }
 
+    private void Jump()
+    {
         if (Input.GetButtonDown("Jump") && isGrounded)
         {
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
         }
+    }
 
+    private void Run()
+    {
         if (Input.GetKeyDown("left shift"))
         {
             speed += runSpeed;
@@ -50,10 +69,5 @@ public class PlayerMovement : MonoBehaviour
         {
             speed -= runSpeed;
         }
-
-        velocity.y += gravity * Time.deltaTime;
-        controller.Move(velocity * Time.deltaTime);
-
-
     }
 }
