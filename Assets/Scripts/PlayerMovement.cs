@@ -63,7 +63,10 @@ public class PlayerMovement : MonoBehaviour
     {
         if (Input.GetKeyDown("left shift") && isGrounded)
         {
-            speed += runSpeed;
+            if (speed <= 12f)
+            {
+                speed += runSpeed;
+            }
         }
         else if (Input.GetKeyUp("left shift") && isGrounded)
         {
