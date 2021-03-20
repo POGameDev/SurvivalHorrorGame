@@ -6,10 +6,15 @@ public class Inventory : MonoBehaviour
 {
     // Start is called before the first frame update
     public GameObject cat;
+    public GameObject weapons;
+    public GameObject player;
+
+    private float pickUpRange = 3.0f;
     private bool isHide = false;
+
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -19,8 +24,21 @@ public class Inventory : MonoBehaviour
         {
             isHide = !isHide;
             cat.SetActive(isHide);
-
-            print("e key was pressed");
+        }
+        GetDistance();
+    }
+    private void GetDistance()
+    {
+        int childrenCount = weapons.transform.childCount;
+        for(int i=0;i<childrenCount;i++)
+        {
+            GameObject child = weapons.transform.GetChild(i).gameObject;
+            Vector3 distanceToPlayer = player.transform.position - child.transform.position;
+            if(distanceToPlayer.magnitude <= pickUpRange)
+            {
+                child.SetActive(false);
+            }
+            
         }
     }
 }
