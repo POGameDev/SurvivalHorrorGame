@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 
 public class AKM : MonoBehaviour
@@ -18,6 +19,8 @@ public class AKM : MonoBehaviour
 
     private float nextTimeToFire = 0f;
 
+    public Text AmmoInfoText = null;
+
     void Start()
     {
         currentAmmo = maxAmmo;
@@ -26,6 +29,8 @@ public class AKM : MonoBehaviour
 
     void Update()
     {
+        AmmoInfoText.text = $"{currentAmmo}/{maxAmmo}";
+
         if (isRealoading)
         {
             return;
@@ -35,6 +40,7 @@ public class AKM : MonoBehaviour
             StartCoroutine(Reload());
             return;
         }
+
 
         if (Input.GetButton("Fire1") && Time.time >= nextTimeToFire)
         {
