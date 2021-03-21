@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 
 public class AKM : MonoBehaviour
@@ -7,14 +8,34 @@ public class AKM : MonoBehaviour
     public float range = 100f;
     public float fireRate = 15f;
 
+    public int maxAmmo = 10;
+    private int currentAmmo;
+    public float reloadTime = 1f;
+    private bool isRealoading = false;
+
     public Camera fpsCamera;
     public ParticleSystem muzzeFire;
 
     private float nextTimeToFire = 0f;
 
+    void Start()
+    {
+        currentAmmo = maxAmmo;
+    }
+
 
     void Update()
     {
+        if (isRealoading)
+        {
+            return;
+        }
+        if (currentAmmo <= 0)
+        {
+            StartCoroutine(Reload());
+            return;
+        }
+
         if (Input.GetButton("Fire1") && Time.time >= nextTimeToFire)
         {
             nextTimeToFire = Time.time + 1f / fireRate;
@@ -22,9 +43,22 @@ public class AKM : MonoBehaviour
         }
     }
 
+    IEnumerator Reload()
+    {
+        isRealoading = true;
+        Debug.Log("Reloading...");
+
+        yield return new WaitForSeconds(reloadTime);
+
+        currentAmmo = maxAmmo;
+        isRealoading = false;
+    }
+
     void Shoot()
     {
         muzzeFire.Play();
+
+        currentAmmo--;
 
         RaycastHit hit;
         if (Physics.Raycast(fpsCamera.transform.position, fpsCamera.transform.forward, out hit, range))
