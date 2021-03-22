@@ -9,7 +9,7 @@ public class AKM : MonoBehaviour
     public float range = 100f;
     public float fireRate = 15f;
 
-    public int maxAmmo = 10;
+    public int maxAmmo = 30;
     private int currentAmmo;
     public float reloadTime = 1f;
     private bool isRealoading = false;
