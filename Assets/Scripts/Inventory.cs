@@ -8,13 +8,17 @@ public class Inventory : MonoBehaviour
     public GameObject cat;
     public GameObject weapons;
     public GameObject player;
+    public GameObject weapon1;
+    public GameObject weapon2;
+
 
     private float pickUpRange = 3.0f;
     private bool isHide = false;
 
     void Start()
     {
-
+        weapon1.SetActive(false);
+        weapon2.SetActive(false);
     }
 
     // Update is called once per frame
@@ -36,6 +40,16 @@ public class Inventory : MonoBehaviour
             Vector3 distanceToPlayer = player.transform.position - child.transform.position;
             if(distanceToPlayer.magnitude <= pickUpRange)
             {
+                
+                if(child.name == weapon1.name)
+                {
+                    weapon1.SetActive(true);
+                }
+                if(child.name == weapon2.name) 
+                {
+                    weapon2.SetActive(true);
+                }
+                
                 child.SetActive(false);
             }
             
