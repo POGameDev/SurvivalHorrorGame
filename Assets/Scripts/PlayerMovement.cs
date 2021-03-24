@@ -8,7 +8,10 @@ public class PlayerMovement : MonoBehaviour
 
     public float speed = 12f;
     public float runSpeed = 10f;
-    public float gravity = -9.81f;
+
+    //const float earthGravity = -9.81f;
+
+    public float gravity = -29.43f;
     public float jumpHeight = 3f;
 
     public Transform groundCheck;

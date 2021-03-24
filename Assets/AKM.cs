@@ -10,7 +10,7 @@ public class AKM : MonoBehaviour
     public float fireRate = 15f;
 
     public int maxAmmo = 30;
-    private int currentAmmo;
+    public static int currentAmmo;
     public float reloadTime = 1f;
     private bool isRealoading = false;
 
@@ -69,7 +69,7 @@ public class AKM : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(fpsCamera.transform.position, fpsCamera.transform.forward, out hit, range))
         {
-            Debug.Log(hit.transform.name);
+            //Debug.Log(hit.transform.name);
 
             Target target = hit.transform.GetComponent<Target>();
             if (target != null)

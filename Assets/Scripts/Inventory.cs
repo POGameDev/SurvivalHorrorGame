@@ -24,7 +24,7 @@ public class Inventory : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown("e"))
+        if(Input.GetKeyDown("i"))
         {
             isHide = !isHide;
             cat.SetActive(isHide);
