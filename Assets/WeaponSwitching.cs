@@ -3,7 +3,7 @@ using UnityEngine;
 public class WeaponSwitching : MonoBehaviour
 {
 
-    public int selectedWeaponIndex = 0;
+    public static int selectedWeaponIndex = 0;
 
     // Start is called before the first frame update
     void Start()
