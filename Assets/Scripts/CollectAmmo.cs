@@ -28,7 +28,7 @@ public class CollectAmmo : MonoBehaviour
                 if(Input.GetKeyDown("e"))
                 {
                     AKM.currentAmmo = 30;
-                    Pistol.currentAmmo = 9;
+                    Pistol.currentAmmo = 12;
                     Shotgun.currentAmmo = 8;
                 }
             }
