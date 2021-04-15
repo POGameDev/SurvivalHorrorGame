@@ -65,6 +65,10 @@ public class PlayerMovement : MonoBehaviour
 
     private void Run()
     {
+        if (Input.GetKey("left shift") && isGrounded && Strength.Str >= 2)
+        {
+            Strength.Str -= 2;
+        }
         if (Input.GetKeyDown("left shift") && isGrounded)
         {
             if (speed <= 12f)
@@ -72,7 +76,7 @@ public class PlayerMovement : MonoBehaviour
                 speed += runSpeed;
             }
         }
-        else if (Input.GetKeyUp("left shift") && isGrounded)
+        else if ((Input.GetKeyUp("left shift") || Strength.Str <= 0) && isGrounded)
         {
             if (speed > 12f)
             {
