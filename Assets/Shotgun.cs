@@ -6,7 +6,7 @@ public class Shotgun : MonoBehaviour
 {
     public float damage = 20f;
     public float range = 50f;
-    public float fireRate = 5f;
+    public float fireRate = 15f;
 
     public int maxAmmo = 8;
     public static int currentAmmo;
@@ -41,7 +41,7 @@ public class Shotgun : MonoBehaviour
         }
 
 
-        if (Input.GetButton("Fire1") && Time.time >= nextTimeToFire)
+        if (Input.GetButtonDown("Fire1") && Time.time >= nextTimeToFire)
         {
             nextTimeToFire = Time.time + 1f / fireRate;
             Shoot();
@@ -68,8 +68,6 @@ public class Shotgun : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(fpsCamera.transform.position, fpsCamera.transform.forward, out hit, range))
         {
-            //Debug.Log(hit.transform.name);
-
             Target target = hit.transform.GetComponent<Target>();
             if (target != null)
             {

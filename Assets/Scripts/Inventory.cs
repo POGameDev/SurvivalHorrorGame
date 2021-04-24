@@ -8,23 +8,32 @@ public class Inventory : MonoBehaviour
     public GameObject cat;
     public GameObject weapons;
     public GameObject player;
-    public GameObject weapon1;
-    public GameObject weapon2;
+    public GameObject pistol;
+    public GameObject shootGun;
+    public GameObject akm;
 
 
     private float pickUpRange = 3.0f;
     private bool isHide = false;
+    public static bool isPistolInInventory { get; set; }
+    public static bool isShootGunInInventory { get; set; }
+    public static bool isAkmGunInInventory { get; set; }
 
     void Start()
     {
-        weapon1.SetActive(false);
-        weapon2.SetActive(false);
+        isPistolInInventory = false;
+        isShootGunInInventory = false;
+        isAkmGunInInventory = false;
+
+        pistol.SetActive(false);
+        shootGun.SetActive(false);
+        akm.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown("i"))
+        if (Input.GetKeyDown("i"))
         {
             isHide = !isHide;
             cat.SetActive(isHide);
@@ -34,25 +43,31 @@ public class Inventory : MonoBehaviour
     private void GetDistance()
     {
         int childrenCount = weapons.transform.childCount;
-        for(int i=0;i<childrenCount;i++)
+        for (int i = 0; i < childrenCount; i++)
         {
             GameObject child = weapons.transform.GetChild(i).gameObject;
             Vector3 distanceToPlayer = player.transform.position - child.transform.position;
-            if(distanceToPlayer.magnitude <= pickUpRange)
+            if (distanceToPlayer.magnitude <= pickUpRange)
             {
-                
-                if(child.name == weapon1.name)
+                //if (child.name == akm.name)
+                //{
+                //    akm.SetActive(true);
+                //    isAkmGunInInventory = true;
+                //}
+                if (child.name == pistol.name)
                 {
-                    weapon1.SetActive(true);
+                    pistol.SetActive(true);
+                    isPistolInInventory = true;
                 }
-                if(child.name == weapon2.name) 
+                if (child.name == shootGun.name)
                 {
-                    weapon2.SetActive(true);
+                    shootGun.SetActive(true);
+                    isShootGunInInventory = true;
                 }
-                
+
                 child.SetActive(false);
             }
-            
+
         }
     }
 }

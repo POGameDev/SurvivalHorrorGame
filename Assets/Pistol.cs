@@ -16,7 +16,7 @@ public class Pistol : MonoBehaviour
     public Camera fpsCamera;
     public ParticleSystem muzzeFire;
 
-    private float nextTimeToFire = 0.4f;
+    private float nextTimeToFire = 1f;
 
     public Text AmmoInfoText = null;
 
@@ -41,7 +41,7 @@ public class Pistol : MonoBehaviour
         }
 
 
-        if (Input.GetButton("Fire1") && Time.time >= nextTimeToFire)
+        if (Input.GetButtonDown("Fire1") && Time.time >= nextTimeToFire)
         {
             nextTimeToFire = Time.time + 1f / fireRate;
             Shoot();

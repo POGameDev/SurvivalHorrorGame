@@ -735,15 +735,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 75dcb58506746b84db987c4ce01e99b5, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.18999481
+      value: 0.329
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 75dcb58506746b84db987c4ce01e99b5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.26999986
+      value: -0.328
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 75dcb58506746b84db987c4ce01e99b5, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.59400177
+      value: 0.877
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 75dcb58506746b84db987c4ce01e99b5, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1637,7 +1637,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 237265537}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6360ae5bf9fb10043a0abb65002c097e, type: 3}
   m_Name: 
@@ -2127,7 +2127,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 281951724}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c3f4bc0aada12ac4f93d3109ffcc266d, type: 3}
   m_Name: 
@@ -2663,7 +2663,7 @@ GameObject:
   - component: {fileID: 378367181}
   - component: {fileID: 378367180}
   m_Layer: 0
-  m_Name: Image
+  m_Name: AKM
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8425,15 +8425,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 75dcb58506746b84db987c4ce01e99b5, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -52.58
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 75dcb58506746b84db987c4ce01e99b5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -8.68
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 75dcb58506746b84db987c4ce01e99b5, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -417.62
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 75dcb58506746b84db987c4ce01e99b5, type: 3}
       propertyPath: m_LocalRotation.w
@@ -12769,8 +12769,9 @@ MonoBehaviour:
   cat: {fileID: 280642938}
   weapons: {fileID: 1467284151}
   player: {fileID: 2051792871}
-  weapon1: {fileID: 1307074755}
-  weapon2: {fileID: 51342832}
+  pistol: {fileID: 1307074755}
+  shootGun: {fileID: 51342832}
+  akm: {fileID: 378367178}
 --- !u!114 &932480865
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22217,6 +22218,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f45886fd27dea7b449c8722d8a5ce64a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  weapons: {fileID: 1568391050}
 --- !u!1 &1580223807
 GameObject:
   m_ObjectHideFlags: 0
@@ -23117,7 +23119,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1734725205}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 899cf8d14f586a94a8f347a460f52f47, type: 3}
   m_Name: 

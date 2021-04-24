@@ -35,12 +35,12 @@ public class AKM : MonoBehaviour
         {
             return;
         }
+
         if (currentAmmo <= 0)
         {
             StartCoroutine(Reload());
             return;
         }
-
 
         if (Input.GetButton("Fire1") && Time.time >= nextTimeToFire)
         {
