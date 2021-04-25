@@ -6,8 +6,8 @@ using UnityEngine.UI;
 public class Strength : MonoBehaviour
 {
     public Text StrengthText;
-    public static int Str = 100;
-    public static int JumpLoseStr = 20;
+    public static float Str = 100.0f;
+    public static float JumpLoseStr = 20.0f;
     public static bool HaveStr = true;
     private float RegenerationDelay = 0.1f;
     // Start is called before the first frame update
@@ -19,7 +19,7 @@ public class Strength : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        StrengthText.text = $"STR: {Str}";
+        StrengthText.text = Str.ToString();
         if(Str <= JumpLoseStr && HaveStr)
         {
             HaveStr = false;

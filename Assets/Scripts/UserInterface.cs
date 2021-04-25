@@ -21,6 +21,6 @@ public class UserInterface : MonoBehaviour
 
     private void HealthUpdate()
     {
-        HealthBar.text = "HP: " + Health.ToString();
+        HealthBar.text = Health.ToString();
     }
 }

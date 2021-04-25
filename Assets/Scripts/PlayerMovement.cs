@@ -67,7 +67,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (Input.GetKey("left shift") && isGrounded && Strength.Str >= 2)
         {
-            Strength.Str -= 2;
+            Strength.Str -= 1.5f;
         }
         if (Input.GetKeyDown("left shift") && isGrounded)
         {
