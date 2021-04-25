@@ -8,8 +8,9 @@ public class AKM : MonoBehaviour
     public float damage = 10f;
     public float range = 100f;
     public float fireRate = 15f;
+    private int magazineAmount = 30;
 
-    public int maxAmmo = 30;
+    public static int maxAmmoAmount = 90;
     public static int currentAmmo;
     public float reloadTime = 1f;
     private bool isRealoading = false;
@@ -23,13 +24,21 @@ public class AKM : MonoBehaviour
 
     void Start()
     {
-        currentAmmo = maxAmmo;
+        
+        if (maxAmmoAmount >= magazineAmount)
+        {
+            currentAmmo = maxAmmoAmount / 3;
+        }
+        else
+        {
+            currentAmmo = maxAmmoAmount;
+        }
     }
 
 
     void Update()
     {
-        AmmoInfoText.text = $"{currentAmmo}/{maxAmmo}";
+        AmmoInfoText.text = $"{currentAmmo}/{maxAmmoAmount}";
 
         if (isRealoading)
         {
@@ -45,7 +54,11 @@ public class AKM : MonoBehaviour
         if (Input.GetButton("Fire1") && Time.time >= nextTimeToFire)
         {
             nextTimeToFire = Time.time + 1f / fireRate;
-            Shoot();
+
+            if (currentAmmo > 0)
+            {
+                Shoot();
+            }
         }
     }
 
@@ -56,7 +69,15 @@ public class AKM : MonoBehaviour
 
         yield return new WaitForSeconds(reloadTime);
 
-        currentAmmo = maxAmmo;
+        if (maxAmmoAmount >= magazineAmount)
+        {
+            currentAmmo = magazineAmount;
+            maxAmmoAmount -= magazineAmount;
+        }
+        else
+        {
+            currentAmmo = maxAmmoAmount;
+        }
         isRealoading = false;
     }
 

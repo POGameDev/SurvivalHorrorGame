@@ -7,8 +7,10 @@ public class Shotgun : MonoBehaviour
     public float damage = 20f;
     public float range = 50f;
     public float fireRate = 15f;
+    private int magazineAmount = 8;
 
-    public int maxAmmo = 8;
+    //public int maxAmmo = 8;
+    public static int maxAmmoAmount = 32;
     public static int currentAmmo;
     public float reloadTime = 4f;
     private bool isRealoading = false;
@@ -22,13 +24,20 @@ public class Shotgun : MonoBehaviour
 
     void Start()
     {
-        currentAmmo = maxAmmo;
+        if (maxAmmoAmount >= magazineAmount)
+        {
+            currentAmmo = maxAmmoAmount / 4;
+        }
+        else
+        {
+            currentAmmo = maxAmmoAmount;
+        }
     }
 
 
     void Update()
     {
-        AmmoInfoText.text = $"{currentAmmo}/{maxAmmo}";
+        AmmoInfoText.text = $"{currentAmmo}/{maxAmmoAmount}";
 
         if (isRealoading)
         {
@@ -44,7 +53,11 @@ public class Shotgun : MonoBehaviour
         if (Input.GetButtonDown("Fire1") && Time.time >= nextTimeToFire)
         {
             nextTimeToFire = Time.time + 1f / fireRate;
-            Shoot();
+
+            if (currentAmmo > 0)
+            {
+                Shoot();
+            }
         }
     }
 
@@ -55,7 +68,15 @@ public class Shotgun : MonoBehaviour
 
         yield return new WaitForSeconds(reloadTime);
 
-        currentAmmo = maxAmmo;
+        if (maxAmmoAmount >= magazineAmount)
+        {
+            currentAmmo = magazineAmount;
+            maxAmmoAmount -= magazineAmount;
+        }
+        else
+        {
+            currentAmmo = maxAmmoAmount;
+        }
         isRealoading = false;
     }
 
