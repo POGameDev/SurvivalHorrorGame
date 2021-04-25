@@ -162,7 +162,6 @@ MonoBehaviour:
   damage: 7
   range: 80
   fireRate: 15
-  maxAmmo: 12
   reloadTime: 1
   fpsCamera: {fileID: 963194227}
   muzzeFire: {fileID: 0}
@@ -800,7 +799,6 @@ MonoBehaviour:
   damage: 10
   range: 100
   fireRate: 15
-  maxAmmo: 30
   reloadTime: 1
   fpsCamera: {fileID: 963194227}
   muzzeFire: {fileID: 1236962202}
@@ -1645,7 +1643,6 @@ MonoBehaviour:
   damage: 7
   range: 80
   fireRate: 15
-  maxAmmo: 12
   reloadTime: 1
   fpsCamera: {fileID: 963194227}
   muzzeFire: {fileID: 0}
@@ -2135,7 +2132,6 @@ MonoBehaviour:
   damage: 20
   range: 50
   fireRate: 15
-  maxAmmo: 8
   reloadTime: 3
   fpsCamera: {fileID: 963194227}
   muzzeFire: {fileID: 0}
@@ -2160,7 +2156,6 @@ MonoBehaviour:
   damage: 20
   range: 50
   fireRate: 15
-  maxAmmo: 8
   reloadTime: 1
   fpsCamera: {fileID: 963194227}
   muzzeFire: {fileID: 0}
@@ -22219,6 +22214,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weapons: {fileID: 1568391050}
+  AmmoInfoText: {fileID: 1373162865}
 --- !u!1 &1580223807
 GameObject:
   m_ObjectHideFlags: 0
@@ -23127,7 +23123,6 @@ MonoBehaviour:
   damage: 10
   range: 100
   fireRate: 15
-  maxAmmo: 30
   reloadTime: 1
   fpsCamera: {fileID: 963194227}
   muzzeFire: {fileID: 500616828}

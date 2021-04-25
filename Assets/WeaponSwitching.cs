@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class WeaponSwitching : MonoBehaviour
 {
@@ -7,6 +8,7 @@ public class WeaponSwitching : MonoBehaviour
     public static int selectedWeaponIndex = 0;
     public GameObject weapons;
     public static List<GameObject> Guns { get; set; }
+    public Text AmmoInfoText = null;
 
     // Start is called before the first frame update
     void Start()
@@ -96,6 +98,7 @@ public class WeaponSwitching : MonoBehaviour
             else
             {
                 weapon.SetActive(false);
+                AmmoInfoText.text = null;
             }
         }
     }
