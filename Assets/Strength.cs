@@ -28,6 +28,11 @@ public class Strength : MonoBehaviour
         {
             HaveStr = true;
         }
+
+        if(Str > 100)
+        {
+            Str = 100;
+        }
     }
     public void Regeneration()
     {
