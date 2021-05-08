@@ -7,11 +7,14 @@ public class EnemyAI : MonoBehaviour
 {
     NavMeshAgent nm;
     public Transform target;
-    public enum AIState { idle, chasing };
+    public enum AIState { idle, chasing, attack };
     public AIState aiState = AIState.idle;
     public Animator animator;
-    public float distanceThreshold = 5f;
+    private float distanceThreshold = 30f;
+    private float attackThreshold = 3.5f;
     private float dist;
+    private int atackDamage = 5;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -47,8 +50,28 @@ public class EnemyAI : MonoBehaviour
                         aiState = AIState.idle;
                         animator.SetBool("Chasing", false);
                     }
+                    if (dist < attackThreshold)
+                    {
+                        aiState = AIState.attack;
+                        animator.SetBool("Attacking", true);
+                    }
                     nm.SetDestination(target.position);
                     break;
+
+                case AIState.attack:
+                    if(UserInterface.Health > 0)
+                    {
+                        UserInterface.Health -= atackDamage;
+                    }
+                    nm.SetDestination(transform.position);
+                    dist = Vector3.Distance(target.position, transform.position);
+                    if (dist > attackThreshold)
+                    {
+                        aiState = AIState.chasing;
+                        animator.SetBool("Attacking", false);
+                    }
+                    break;
+                    
                 default:
                     break;
             }
