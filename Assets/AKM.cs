@@ -24,7 +24,7 @@ public class AKM : MonoBehaviour
 
     void Start()
     {
-        
+
         if (maxAmmoAmount >= magazineAmount)
         {
             currentAmmo = maxAmmoAmount / 3;
@@ -98,6 +98,6 @@ public class AKM : MonoBehaviour
                 target.TakeDamage(damage);
             }
         }
-        
+
     }
 }

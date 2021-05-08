@@ -82,7 +82,7 @@ public class Shotgun : MonoBehaviour
 
     void Shoot()
     {
-        //muzzeFire.Play();
+        muzzeFire.Play();
 
         currentAmmo--;
 
