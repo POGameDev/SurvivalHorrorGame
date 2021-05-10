@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -6,7 +5,7 @@ using UnityEngine.UI;
 public class GasCanHolder : MonoBehaviour
 {
     private List<GasCan.KeyType> gasCanList;
-    private int GasCanIndex;
+    public static int GasCanIndex;
     public Text GasCanAmountText;
 
     void Start()
@@ -20,11 +19,10 @@ public class GasCanHolder : MonoBehaviour
 
     public void AddKey(GasCan.KeyType gasCanType)
     {
-        //Debug.Log($"Added key: {gasCanType} {GasCanIndex}");
         gasCanList.Add(gasCanType);
         GasCanIndex++;
-        Debug.Log($"Added key: {gasCanType} {GasCanIndex}");
-        GasCanAmountText.text = GasCanIndex.ToString();
+        //Debug.Log($"Added key: {gasCanType} {GasCanIndex}");
+        GasCanAmountText.text = $"{GasCanIndex}/3";
     }
 
     public void RemoveKey(GasCan.KeyType gasCanType)
@@ -45,15 +43,5 @@ public class GasCanHolder : MonoBehaviour
             AddKey(gasCan.GetGasCan());
             Destroy(gasCan.gameObject);
         }
-
-        //KeyDoor keyDoor = collider.GetComponent<KeyDoor>();
-        //if (keyDoor != null)
-        //{
-        //    if (ContainsKey(keyDoor.GetKeyType()))
-        //    {
-        //        RemoveKey(keyDoor.GetKeyType());
-        //        keyDoor.OpenDoor();
-        //    }
-        //}
     }
 }
