@@ -5,12 +5,14 @@ public class TankCube : MonoBehaviour
     public Camera fpsCamera;
     public GameObject tankUpText;
     public GameObject gameEndText;
+    public GameObject noGasCanText;
     private readonly float tankUpRange = 4.0f;
 
     void Start()
     {
         tankUpText.SetActive(false);
         gameEndText.SetActive(false);
+        noGasCanText.SetActive(false);
     }
 
     void Update()
@@ -23,15 +25,18 @@ public class TankCube : MonoBehaviour
                 tankUpText.SetActive(true);
                 if (Input.GetKeyDown("e") && GasCanHolder.GasCanIndex == 3)
                 {
-                    Debug.Log("Tankowanie!");
                     gameEndText.SetActive(true);
-                    
+                }
+                else if (Input.GetKeyDown("e") && GasCanHolder.GasCanIndex < 3)
+                {
+                    noGasCanText.SetActive(true);
                 }
             }
         }
         else
         {
             tankUpText.SetActive(false);
+            noGasCanText.SetActive(false);
         }
     }
 }
