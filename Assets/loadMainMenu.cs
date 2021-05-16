@@ -3,22 +3,25 @@ using UnityEngine;
 public class loadMainMenu : MonoBehaviour
 {
     public GameObject mainMenuCanvas;
+    private bool isActive;
 
     void Start()
     {
         mainMenuCanvas.SetActive(false);
+        isActive = false;
     }
 
     void Update()
     {
-        //if (Input.GetKeyDown(KeyCode.Escape)) 
-        //{
-        //    mainMenuCanvas.SetActive(true);
-        //}
-
-        if (Input.GetKeyDown("escape"))
+        if (Input.GetKeyDown("escape") && !isActive)
         {
             mainMenuCanvas.SetActive(true);
+            isActive = true;
+        }
+        else if (Input.GetKeyDown("escape") && isActive)
+        {
+            mainMenuCanvas.SetActive(false);
+            isActive = false;
         }
     }
 
