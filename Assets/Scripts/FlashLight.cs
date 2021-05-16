@@ -1,16 +1,14 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class FlashLight : MonoBehaviour
 {
     public GameObject Light;
-    private bool LightActive;
+    public bool LightActive { get; set; }
     void Start()
     {
         Light.SetActive(false);
     }
-    
+
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.F))

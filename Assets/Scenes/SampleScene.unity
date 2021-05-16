@@ -10323,6 +10323,7 @@ GameObject:
   - component: {fileID: 932480869}
   - component: {fileID: 932480870}
   - component: {fileID: 932480871}
+  - component: {fileID: 932480872}
   m_Layer: 0
   m_Name: First Person Player
   m_TagString: Untagged
@@ -10501,6 +10502,19 @@ MonoBehaviour:
   tankUpText: {fileID: 433093220}
   gameEndText: {fileID: 1727859613}
   noGasCanText: {fileID: 232342256}
+--- !u!114 &932480872
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 932480860}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99cb555fd640c664aaf0096f33fd00e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainMenuCanvas: {fileID: 1154352101}
 --- !u!1 &939472204 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 376e96c27f58271488ee0b844b52b329, type: 3}
@@ -12498,7 +12512,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 10.384, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 2630, y: 248}
+  m_AnchoredPosition: {x: 881, y: 248}
   m_SizeDelta: {x: 962, y: 496}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1159168484 stripped
