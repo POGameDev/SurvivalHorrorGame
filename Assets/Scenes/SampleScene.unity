@@ -7950,7 +7950,7 @@ Light:
   m_Type: 1
   m_Shape: 0
   m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
-  m_Intensity: 0.1
+  m_Intensity: 0.01
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -8173,6 +8173,11 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -5198267681279241171, guid: 5fd109c423ed97144ae718b0c0e832b9, type: 3}
+--- !u!4 &732105677 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4950517545189902, guid: b4d0d3252571eb9468266301b65df7d2, type: 3}
+  m_PrefabInstance: {fileID: 1180836625}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &732804690 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1347164949040024, guid: 20d6170d440e52b438267a860798bb0a, type: 3}
@@ -19231,7 +19236,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 0.5, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1319047242
 MonoBehaviour:
@@ -22162,7 +22167,6 @@ Transform:
   - {fileID: 1451203679}
   - {fileID: 587097360}
   - {fileID: 1015688005}
-  - {fileID: 1825784785}
   m_Father: {fileID: 0}
   m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -22683,8 +22687,8 @@ GameObject:
   - component: {fileID: 1825784788}
   - component: {fileID: 1825784787}
   - component: {fileID: 1825784786}
-  - component: {fileID: 1825784789}
   - component: {fileID: 1825784790}
+  - component: {fileID: 1825784789}
   m_Layer: 1
   m_Name: TankCube
   m_TagString: Untagged
@@ -22699,12 +22703,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1825784784}
-  m_LocalRotation: {x: -0.0012769605, y: -0.040290955, z: 0.031651784, w: 0.9986858}
-  m_LocalPosition: {x: -82.178, y: 79.176, z: 149.04}
-  m_LocalScale: {x: 0.3, y: 0.3, z: 0.1}
+  m_LocalRotation: {x: -0.0012769595, y: -0.040290948, z: 0.031651784, w: 0.9986857}
+  m_LocalPosition: {x: 76.29, y: 14.916, z: 353.559}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.2}
   m_Children: []
-  m_Father: {fileID: 1759300807}
-  m_RootOrder: 6
+  m_Father: {fileID: 0}
+  m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: -4.621, z: 3.631}
 --- !u!65 &1825784786
 BoxCollider:
@@ -22726,7 +22730,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1825784784}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -22738,7 +22742,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: fec6c60c44d14d142b78c611cef47a14, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -22775,13 +22779,13 @@ Light:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1825784784}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 10
   m_Type: 2
   m_Shape: 0
-  m_Color: {r: 0.93333334, g: 0.93333334, b: 0.93333334, a: 1}
-  m_Intensity: 2
-  m_Range: 3
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Intensity: 1
+  m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -22843,8 +22847,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   outlineMode: 1
-  outlineColor: {r: 1, g: 1, b: 1, a: 1}
-  outlineWidth: 2
+  outlineColor: {r: 0.24313726, g: 0.4627451, b: 0.101960786, a: 1}
+  outlineWidth: 5
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
@@ -23654,12 +23658,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1921443301}
-  m_LocalRotation: {x: -0, y: 0.26462945, z: -0, w: 0.9643502}
-  m_LocalPosition: {x: 105.116, y: 18.274364, z: 371.77}
-  m_LocalScale: {x: 4, y: 5, z: 1}
+  m_LocalRotation: {x: -0, y: 0.0060201734, z: -0, w: 0.99998194}
+  m_LocalPosition: {x: 2.3734963, y: 1.4214778, z: 3.5714788}
+  m_LocalScale: {x: 2.5, y: 3.125, z: 0.625}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 21
+  m_Father: {fileID: 732105677}
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 30.69, z: 0}
 --- !u!1 &1923471186 stripped
 GameObject:
