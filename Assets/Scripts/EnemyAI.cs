@@ -11,7 +11,7 @@ public class EnemyAI : MonoBehaviour
     public AIState aiState = AIState.idle;
     public Animator animator;
     private float distanceThreshold = 50f;
-    private float attackThreshold = 3.5f;
+    private float attackThreshold = 2.5f;
     private float dist;
     private int atackDamage = 10;
     
