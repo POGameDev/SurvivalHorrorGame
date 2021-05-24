@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class Target : MonoBehaviour
 {
+    public GameObject thisGameObject;
     public float health = 50f;
 
     public void TakeDamage(float amount)
@@ -15,6 +16,6 @@ public class Target : MonoBehaviour
 
     void Destroy()
     {
-        Destroy(gameObject);
+        Destroy(thisGameObject);
     }
 }

@@ -1,7 +1,7 @@
 using UnityEngine;
 
-
-public class PlayerData 
+[System.Serializable]
+public class DataToSave : MonoBehaviour
 {
     public CharacterController controller;
     public GameObject NormalDoor;
@@ -49,14 +49,14 @@ public class PlayerData
     public bool isGasCan2Picked;//
     public bool isGasCan3Picked;//
 
-    public PlayerData(PlayerMovement player/*, KeyHolder keyHolder*/)
+    public DataToSave(/*, KeyHolder keyHolder*/)
     {
         health = UserInterface.Health;
 
-        playerPosition = new float[3];
-        playerPosition[0] = player.controller.transform.position.x;
-        playerPosition[1] = player.controller.transform.position.y;
-        playerPosition[2] = player.controller.transform.position.z;
+        //playerPosition = new float[3];
+        //playerPosition[0] = controller.transform.position.x;
+        //playerPosition[1] = controller.transform.position.y;
+        //playerPosition[2] = controller.transform.position.z;
 
         str = Strength.Str;
 
@@ -72,11 +72,11 @@ public class PlayerData
         isShotgunPicked = Inventory.isShootGunInInventory;
         isPistolPicked = Inventory.isPistolInInventory;
 
-        isNormalKeyDoorOpen = NormalDoor.activeSelf;
-        isRustyKeyDoorOpen = RustyDoor.activeSelf;
+        //isNormalKeyDoorOpen = NormalDoor.activeSelf;
+        //isRustyKeyDoorOpen = RustyDoor.activeSelf;
 
-        isGasCan1Picked = gasCan1.activeSelf;
-        isGasCan2Picked = gasCan2.activeSelf;
-        isGasCan3Picked = gasCan3.activeSelf;
+        //isGasCan1Picked = gasCan1.activeSelf;
+        //isGasCan2Picked = gasCan2.activeSelf;
+        //isGasCan3Picked = gasCan3.activeSelf;
     }
 }

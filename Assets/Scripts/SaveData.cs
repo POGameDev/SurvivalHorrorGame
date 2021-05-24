@@ -2,22 +2,22 @@ using UnityEngine;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 
-public class SaveData
+public static class SaveData
 {
-    public static void Save(PlayerMovement player, FlashLight flashLight, KeyHolder keyHolder)
+    public static void Save()
     {
         BinaryFormatter formatter = new BinaryFormatter();
         string path = $"{Application.persistentDataPath}/player.fun";
 
         FileStream stream = new FileStream(path, FileMode.Create);
 
-        PlayerData playerData = new PlayerData(player, flashLight, keyHolder);
+        DataToSave playerData = new DataToSave(/*, keyHolder*/);
 
         formatter.Serialize(stream, playerData);
         stream.Close();
     }
 
-    public static PlayerData LoadData()
+    public static DataToSave LoadData()
     {
         string path = $"{Application.persistentDataPath}/player.fun";
         if (File.Exists(path))
@@ -25,7 +25,7 @@ public class SaveData
             BinaryFormatter formatter = new BinaryFormatter();
             FileStream stream = new FileStream(path, FileMode.Open);
 
-            PlayerData data =  formatter.Deserialize(stream) as PlayerData;
+            DataToSave data =  formatter.Deserialize(stream) as DataToSave;
             stream.Close();
 
             return data;

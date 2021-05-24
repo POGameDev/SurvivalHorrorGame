@@ -3,7 +3,7 @@ using UnityEngine;
 public class FlashLight : MonoBehaviour
 {
     public GameObject Light;
-    public bool LightActive { get; set; }
+    public static bool LightActive { get; set; }
     void Start()
     {
         Light.SetActive(false);

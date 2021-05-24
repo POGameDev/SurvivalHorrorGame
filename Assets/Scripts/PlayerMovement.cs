@@ -41,6 +41,17 @@ public class PlayerMovement : MonoBehaviour
 
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
+
+        if (Input.GetKeyDown("."))
+        {
+            Debug.Log("@@@@@@@@@@@@@@@@@@@@@@@@@@SAVE@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
+            SaveGameData();
+        }
+        if (Input.GetKeyDown(","))
+        {
+            Debug.Log("@@@@@@@@@@@@@@@@@@@@@@@@@@LOAD@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
+            LoadGameData();
+        }
     }
 
 
@@ -83,5 +94,46 @@ public class PlayerMovement : MonoBehaviour
                 speed -= runSpeed;
             }
         }
+    }
+
+    public void SaveGameData()
+    {
+        SaveData.Save();
+        Debug.Log("Save Click");
+    }
+
+    public void LoadGameData()
+    {
+        Debug.Log("Load Click");
+        DataToSave data = SaveData.LoadData();
+
+
+        UserInterface.Health = data.health;
+
+        //playerPosition = new float[3];
+        //playerPosition[0] = controller.transform.position.x;
+        //playerPosition[1] = controller.transform.position.y;
+        //playerPosition[2] = controller.transform.position.z;
+
+        Strength.Str = data.str;
+
+        Shotgun.currentAmmo = data.shotgunAmmo;
+        Pistol.currentAmmo = data.pistolAmmo;
+        AKM.currentAmmo = data.akmAmmo;
+
+        FlashLight.LightActive = data.isFlashLightOn;
+
+        //isNormalKeyPicked = keyHolder.ContainsKey(Key.KeyType.NormalKey);
+        //isRustyKeyPicked = keyHolder.ContainsKey(Key.KeyType.Rustykey);
+
+        Inventory.isShootGunInInventory = data.isShotgunPicked;
+        Inventory.isPistolInInventory = data.isPistolPicked;
+
+        //isNormalKeyDoorOpen = NormalDoor.activeSelf;
+        //isRustyKeyDoorOpen = RustyDoor.activeSelf;
+
+        //isGasCan1Picked = gasCan1.activeSelf;
+        //isGasCan2Picked = gasCan2.activeSelf;
+        //isGasCan3Picked = gasCan3.activeSelf;
     }
 }

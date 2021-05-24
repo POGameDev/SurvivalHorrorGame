@@ -1,10 +1,20 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 public class loadMainMenu : MonoBehaviour
 {
     public GameObject mainMenuCanvas;
+
+    PlayerMovement _player;
+    FlashLight _flashLight;
+    KeyHolder _keyHolder;
     private bool isActive;
 
+    public loadMainMenu(PlayerMovement player, FlashLight flashLight, KeyHolder keyHolder)
+    {
+        _player = player;
+        _flashLight = flashLight;
+        _keyHolder = keyHolder;
+    }
     void Start()
     {
         mainMenuCanvas.SetActive(false);
@@ -15,23 +25,28 @@ public class loadMainMenu : MonoBehaviour
     {
         if (Input.GetKeyDown("escape") && !isActive)
         {
-            mainMenuCanvas.SetActive(true);
-            isActive = true;
+            Pause();
         }
         else if (Input.GetKeyDown("escape") && isActive)
         {
-            mainMenuCanvas.SetActive(false);
-            isActive = false;
+            Resume();
         }
+
     }
 
-    public void SaveGameData()
+    void Pause()
     {
-        //SaveData.Save();
+        mainMenuCanvas.SetActive(true);
+        isActive = true;
+        Time.timeScale = 0;
+        AudioListener.pause = true;
     }
 
-    public void LoadGameData()
+    void Resume()
     {
-        PlayerData data = SaveData.LoadData();
+        mainMenuCanvas.SetActive(false);
+        isActive = false;
+        Time.timeScale = 1;
+        AudioListener.pause = false;
     }
 }
