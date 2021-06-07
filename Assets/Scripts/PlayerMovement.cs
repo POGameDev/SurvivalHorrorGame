@@ -76,24 +76,28 @@ public class PlayerMovement : MonoBehaviour
 
     private void Run()
     {
-        if (Input.GetKey("left shift") && isGrounded && Strength.Str >= 1)
+        if(isGrounded && !!!Input.GetButtonDown("Jump"))
         {
-            Strength.Str -= 1f;
-        }
-        if (Input.GetKeyDown("left shift") && isGrounded)
-        {
-            if (speed <= 12f)
+            if (Input.GetKey("left shift")  && Strength.Str >= 1)
             {
-                speed += runSpeed;
+                Strength.Str -= 1f;
+            }
+            if (Input.GetKeyDown("left shift")  )
+            {
+                if (speed <= 12f)
+                {
+                    speed += runSpeed;
+                }
+            }
+            else if ((Input.GetKeyUp("left shift") || Strength.Str <= 1)  )
+            {
+                if (speed > 12f)
+                {
+                    speed -= runSpeed;
+                }
             }
         }
-        else if ((Input.GetKeyUp("left shift") || Strength.Str <= 1) && isGrounded)
-        {
-            if (speed > 12f)
-            {
-                speed -= runSpeed;
-            }
-        }
+        
     }
 
     public void SaveGameData()

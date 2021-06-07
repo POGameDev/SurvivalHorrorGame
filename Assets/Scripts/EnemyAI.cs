@@ -11,9 +11,10 @@ public class EnemyAI : MonoBehaviour
     public AIState aiState = AIState.idle;
     public Animator animator;
     private float distanceThreshold = 50f;
-    private float attackThreshold = 2.5f;
+    //private float attackThreshold = 2.5f;
+    private float attackThreshold = 6f;
     private float dist;
-    private int atackDamage = 10;
+    private int atackDamage = 5;
     
     // Start is called before the first frame update
     void Start()
