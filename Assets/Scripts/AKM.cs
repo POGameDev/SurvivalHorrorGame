@@ -51,6 +51,12 @@ public class AKM : MonoBehaviour
             return;
         }
 
+        if ((Input.GetKeyDown(KeyCode.R)))
+        {
+            StartCoroutine(Reload());
+            return;
+        }
+
         if (Input.GetButton("Fire1") && Time.time >= nextTimeToFire)
         {
             nextTimeToFire = Time.time + 1f / fireRate;

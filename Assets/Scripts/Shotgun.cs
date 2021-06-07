@@ -49,6 +49,12 @@ public class Shotgun : MonoBehaviour
             return;
         }
 
+        if ((Input.GetKeyDown(KeyCode.R)))
+        {
+            StartCoroutine(Reload());
+            return;
+        }
+
 
         if (Input.GetButtonDown("Fire1") && Time.time >= nextTimeToFire)
         {
